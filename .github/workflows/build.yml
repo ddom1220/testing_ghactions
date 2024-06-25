@@ -16,8 +16,14 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "ℹ️ This job's status is ${{ job.status }}."
+
+  Simulating-Deploy-and-Tests:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: deploy_and_integration
+    steps:
+      - run: echo "⏱️simulating deploy and integrationtests"
       - name: simulating Time
         uses: GuillaumeFalourd/wait-sleep-action@v1
         with:
           time: '5m'
-      - run: echo "🌈 REFLECT. EMPOWER. UNITE. 🌈"
