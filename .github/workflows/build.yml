@@ -30,6 +30,7 @@ jobs:
 
   Simulating-Integration:
     runs-on: ubuntu-latest
+    needs: ["Simulating-Deploy"]
     concurrency:
       group: deploy_and_integration
     steps:
