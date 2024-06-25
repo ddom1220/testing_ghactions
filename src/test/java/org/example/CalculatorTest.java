@@ -17,4 +17,6 @@ class CalculatorTest {
         assertNotEquals(5, calculator.add(1, 2, 3, 4, 5));
     }
 
+    // comment to simulate changes
+
 }
