@@ -18,5 +18,6 @@ class CalculatorTest {
     }
 
     // comment to simulate changes
+    //second comment
 
 }
