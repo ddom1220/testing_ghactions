@@ -17,8 +17,9 @@ jobs:
           ls ${{ github.workspace }}
       - run: echo "ℹ️ This job's status is ${{ job.status }}."
 
-  Build:
+  Build-an-UnitTest:
     runs-on: ubuntu-latest
+    needs: ["Explore-GitHub-Actions"]
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
@@ -31,10 +32,12 @@ jobs:
         run: mvn clean install
       - name: Run tests with Maven
         run: mvn test
+      - name: debuggin tests
+        run: mvn -Dtest=CalculatorTest test -B -X
 
   Simulating-Deploy:
     runs-on: ubuntu-latest
-    needs: ["Explore-GitHub-Actions"]
+    needs: ["Build-and-UnitTest"]
     concurrency:
       group: deploy_and_integration
     steps:
