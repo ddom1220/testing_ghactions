@@ -9,6 +9,11 @@ class CalculatorTest {
     Calculator calculator = new Calculator();
 
     @Test
+    void testBadAdd(){
+        assertEquals(5, calculator.badAdd(2,3));
+    }
+
+    @Test
     void testAdd() {
         assertEquals(3, calculator.add(1, 2));
         assertEquals(15, calculator.add(1,2,3,4,5));
